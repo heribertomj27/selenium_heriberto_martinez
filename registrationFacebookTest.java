@@ -45,9 +45,8 @@ public class registrationFacebookTest {
         WebElement genero=listaGeneros.get(1);
         genero.click();
 
-
-
-
+        //Validamos que el test sea o no exitoso validando que el último campo del formulario este informado
+        Assert.assertTrue(genero.isSelected());
 
 
     }
