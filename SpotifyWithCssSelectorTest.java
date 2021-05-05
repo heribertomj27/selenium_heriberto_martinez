@@ -2,6 +2,7 @@ package Clase11;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -14,7 +15,7 @@ public class SpotifyWithCssSelectorTest {
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.spotify.com/uy/signup/");
-        boolean camposCompleted=false;
+
         Thread.sleep(4000);
 
         driver.findElement(By.cssSelector("input[placeholder='Introduce tu correo electrónico.']")).sendKeys("pruebatesting@gmail.com");
@@ -29,10 +30,9 @@ public class SpotifyWithCssSelectorTest {
         driver.findElement(By.cssSelector("label[for='marketing-opt-checkbox']")).click();
         driver.findElement(By.cssSelector("label[for='third-party-checkbox']")).click();
 
-        //Validando que todos los campos se informaron
-        camposCompleted=true;
-        Assert.assertTrue(camposCompleted);
-        System.out.println("Se completaron de forma correcta los campos necesarios para el registro");
+        WebElement botonRegistrarse=driver.findElement(By.cssSelector("button[type='submit']"));
+        Assert.assertTrue(botonRegistrarse.getText().equals("Registrarte"),"********** El botón no tiene el texto 'Registrarte', validar con equipo de desarrollo **********");
+        System.out.println("********** Se valido de forma correcta el llenado del formulario y el copy correcto del botón para crear un nuevo registro **********");
 
 
     }
