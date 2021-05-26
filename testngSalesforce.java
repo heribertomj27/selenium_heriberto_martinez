@@ -15,16 +15,16 @@ public class testngSalesforce {
     @Test(groups={"successTests","failTest"})
 
     @BeforeTest
-    public void beforeTestInicio(){
+    public void setUpSaleForce(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         driver=new ChromeDriver();
+        driver.get(SALEFORCE_URL);
         driver.manage().window().maximize();
 
     }
 
     @Test(priority=1,groups={"failTest"})
     public void validateSalesforceLogoTest() throws InterruptedException {
-        driver.get(SALEFORCE_URL);
         Thread.sleep(3000);
         WebElement logo=driver.findElement(By.id("logo"));
         System.out.println(logo.getTagName());
@@ -35,7 +35,6 @@ public class testngSalesforce {
 
     @Test (priority=1,groups={"successTests"})
     public void RememberMeIsSelected() throws InterruptedException {
-        driver.get(SALEFORCE_URL);
         Thread.sleep(3000);
         WebElement remember= driver.findElement(By.id("rememberUn"));
         remember.click();
@@ -48,7 +47,6 @@ public class testngSalesforce {
     @Test(enabled=false, groups={"successTests"})
 
     public void FooterIsValid() throws InterruptedException {
-        driver.get(SALEFORCE_URL);
         Thread.sleep(3000);
         WebElement footer=driver.findElement(By.id("footer"));
         Assert.assertTrue(footer.getText().contains("All rights reserved"),"No contiene Derechos reservados");
@@ -59,7 +57,6 @@ public class testngSalesforce {
     //**********Ejercicio GIT**********
     @Test(priority=3,groups={"successTests"})
     public void LoginFailureTest() throws InterruptedException {
-        driver.get(SALEFORCE_URL);
         Thread.sleep(3000);
         WebElement logoSalesForce=driver.findElement(By.id("logo"));
         if(logoSalesForce.getAttribute("id").equals("logo")){
