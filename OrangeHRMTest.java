@@ -22,11 +22,12 @@ public class OrangeHRMTest {
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         driver=new ChromeDriver();
         driver.get(ORANGE_URL);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
     public void validaQuickActions(){
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         OrangeHRMLoginPage orangeHRMLoginPage=new OrangeHRMLoginPage(driver);
 
         System.out.println(orangeHRMLoginPage.getTitle());
@@ -35,19 +36,15 @@ public class OrangeHRMTest {
         Assert.assertEquals(orangeHRMLoginPage.getURL(),"https://orangehrm-demo-6x.orangehrmlive.com/","La URL de la página no es la correcta");
 
         OrangeHRMDashboardPage orangeHRMDashboardPage= orangeHRMLoginPage.btnLoginSubmitOnClick();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-
         Assert.assertTrue(orangeHRMDashboardPage.QuickActionsList().size()==8,"La lista de QuickActions no es e 8");
 
     }
 
     @Test
     public void testsTimeSheetsPage(){
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         OrangeHRMLoginPage orangeHRMLoginPage=new OrangeHRMLoginPage(driver);
         OrangeHRMDashboardPage orangeHRMDashboardPage= orangeHRMLoginPage.btnLoginSubmitOnClick();
         OrangeHRMTimeSheetToApprove orangeHRMTimeSheetToApprove= orangeHRMDashboardPage.btnDashboardTimeSheetsOnClick();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
         System.out.println(orangeHRMTimeSheetToApprove.getTitle());
         System.out.println(orangeHRMTimeSheetToApprove.getURL());
@@ -55,7 +52,6 @@ public class OrangeHRMTest {
         Assert.assertEquals(orangeHRMTimeSheetToApprove.getTitle(),"Employee Timesheets","El título de la página no es el correcto");
         Assert.assertEquals(orangeHRMTimeSheetToApprove.getURL(),"https://orangehrm-demo-6x.orangehrmlive.com/client/#/time/employee_timesheets","La URL de la página no es la correcta");
 
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         WebElement elementosADesplegar =driver.findElement(By.xpath("//li[@class='summary']"));
 
         System.out.println("Elementos a mostrar: "+elementosADesplegar.getText());
