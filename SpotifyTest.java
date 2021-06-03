@@ -24,12 +24,12 @@ public class SpotifyTest {
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         driver=new ChromeDriver();
         driver.get(SPOTIFY_URL);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
 
     @Test
     public void testsSpotifyRegistrationPage(){
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         SpotifyLandingPage spotifyLandingPage=new SpotifyLandingPage(driver);
         spotifyLandingPage.getTitle();
         Assert.assertEquals(spotifyLandingPage.getTitle(),"Escuchar es todo - Spotify","El título no es el correcto");
@@ -37,15 +37,14 @@ public class SpotifyTest {
         Assert.assertEquals(spotifyLandingPage.getURL(),"https://www.spotify.com/mx/","La url no es la correcta");
 
         SpotifyRegistrationPage spotifyRegistrationPage=spotifyLandingPage.btnRegistrarseOnclick();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         spotifyRegistrationPage.getTitle();
         Assert.assertEquals(spotifyRegistrationPage.getTitle(),"Registrarte - Spotify","El título de la página no es el correcto");
 
         spotifyRegistrationPage.getURL();
         Assert.assertEquals(spotifyRegistrationPage.getURL(),"https://www.spotify.com/mx/signup/","El título de la página no es el cor");
 
-        spotifyRegistrationPage.FillEmailField("@@@.com");
-        spotifyRegistrationPage.FillConfirmEmailField("@@@.com");
+        spotifyRegistrationPage.fillEmailField("@@@.com");
+        spotifyRegistrationPage.fillConfirmEmailField("@@@.com");
 
         WebElement msgError=driver.findElement(By.xpath("//*[contains(text(),'Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com')]"));
         Assert.assertEquals(msgError.getText(),"Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com","El mensaje de error no es correcto");
@@ -53,10 +52,8 @@ public class SpotifyTest {
     }
     @Test
     public void testsSpotifyPremiumPage(){
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         SpotifyLandingPage spotifyLandingPage=new SpotifyLandingPage(driver);
         SpotifyPremiumPage spotifyPremiumPage=spotifyLandingPage.btnPremiumOnClick();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
         System.out.println(spotifyPremiumPage.getTitle());
         System.out.println(spotifyPremiumPage.getURL());

@@ -17,7 +17,8 @@ public class SpotifyRegistrationPage {
 
     }
 
-    public String getTitle(){
+    public String getTitle()
+    {
         return driver.getTitle();
     }
 
@@ -26,38 +27,38 @@ public class SpotifyRegistrationPage {
         return driver.getCurrentUrl();
     }
 
-    public void FillEmailField(String anEmail){
+    public void fillEmailField(String anEmail){
         driver.findElement(By.id("email")).sendKeys(anEmail);
 
     }
 
-    public void FillConfirmEmailField(String anConfirmEmail){
+    public void fillConfirmEmailField(String anConfirmEmail){
         driver.findElement(By.id("confirm")).sendKeys(anConfirmEmail);
 
     }
 
-    public void FillPasswordField(String anPassword){
+    public void fillPasswordField(String anPassword){
         driver.findElement(By.id("password")).sendKeys(anPassword);
 
     }
 
-    public void FillDisplayNameField(String anDisplayName){
+    public void fillDisplayNameField(String anDisplayName){
         driver.findElement(By.id("displayname")).sendKeys(anDisplayName);
     }
 
-    public void FillDayField(String anDay){
+    public void fillDayField(String anDay){
         driver.findElement(By.id("day")).sendKeys(anDay);
 
     }
 
-    public void SelectMonthField(String anMoth){
+    public void selectMonthField(String anMoth){
         WebElement listMonths=driver.findElement(By.id("month"));
         Select months=new Select(listMonths);
         months.selectByValue(anMoth);
 
     }
 
-    public void FillYearField(String anYear){
+    public void fillYearField(String anYear){
 
         driver.findElement(By.id("year")).sendKeys(anYear);
 
