@@ -80,6 +80,12 @@ public class SpotifyRegistrationPage {
         driver.findElement(By.cssSelector("label[for='third-party-checkbox']")).click();
     }
 
+    public String mensajeEmailInvalido(){
+
+        WebElement msgError=driver.findElement(By.xpath("//*[contains(text(),'Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com')]"));
+        return msgError.getText();
+    }
+
 
 
 
