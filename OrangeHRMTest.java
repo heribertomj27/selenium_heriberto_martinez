@@ -42,7 +42,7 @@ public class OrangeHRMTest {
     public void testsTimeSheetsPage(){
         OrangeHRMLoginPage orangeHRMLoginPage=new OrangeHRMLoginPage(driver);
         OrangeHRMDashboardPage orangeHRMDashboardPage= orangeHRMLoginPage.btnLoginSubmitOnClick();
-        OrangeHRMTimeSheetToApprove orangeHRMTimeSheetToApprove= orangeHRMDashboardPage.btnDashboardTimeSheetsOnClick();
+        OrangeHRMTimeSheetToApprovePage orangeHRMTimeSheetToApprove= orangeHRMDashboardPage.btnDashboardTimeSheetsOnClick();
 
         System.out.println(orangeHRMTimeSheetToApprove.getTitle());
         System.out.println(orangeHRMTimeSheetToApprove.getURL());

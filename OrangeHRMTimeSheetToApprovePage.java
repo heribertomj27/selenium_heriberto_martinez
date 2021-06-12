@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class OrangeHRMTimeSheetToApprove {
+public class OrangeHRMTimeSheetToApprovePage {
 
     public WebDriver driver;
 
-    public OrangeHRMTimeSheetToApprove(WebDriver remoteDriver){
+    public OrangeHRMTimeSheetToApprovePage(WebDriver remoteDriver){
         driver=remoteDriver;
 
     }
@@ -26,10 +26,5 @@ public class OrangeHRMTimeSheetToApprove {
         WebElement elementosADesplegar =driver.findElement(By.xpath("//li[@class='summary']"));
         return elementosADesplegar.getText();
     }
-
-
-
-
-
 
 }

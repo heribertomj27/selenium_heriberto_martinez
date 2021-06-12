@@ -32,9 +32,9 @@ public class OrangeHRMDashboardPage {
 
     }
 
-    public OrangeHRMTimeSheetToApprove btnDashboardTimeSheetsOnClick(){
+    public OrangeHRMTimeSheetToApprovePage btnDashboardTimeSheetsOnClick(){
         driver.findElement(By.xpath("//*[contains(text(),'Timesheets to Approve')]")).click();
-        OrangeHRMTimeSheetToApprove orangeHRMTimeSheetToApprove= new OrangeHRMTimeSheetToApprove(driver);
+        OrangeHRMTimeSheetToApprovePage orangeHRMTimeSheetToApprove= new OrangeHRMTimeSheetToApprovePage(driver);
         return orangeHRMTimeSheetToApprove;
 
 
