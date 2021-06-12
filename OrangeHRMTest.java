@@ -1,8 +1,6 @@
 package Clase15.EjerciciosOrangeHRM;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -52,17 +50,8 @@ public class OrangeHRMTest {
         Assert.assertEquals(orangeHRMTimeSheetToApprove.getTitle(),"Employee Timesheets","El título de la página no es el correcto");
         Assert.assertEquals(orangeHRMTimeSheetToApprove.getURL(),"https://orangehrm-demo-6x.orangehrmlive.com/client/#/time/employee_timesheets","La URL de la página no es la correcta");
 
-        WebElement elementosADesplegar =driver.findElement(By.xpath("//li[@class='summary']"));
-
-        System.out.println("Elementos a mostrar: "+elementosADesplegar.getText());
-
+        System.out.println("Elementos a mostrar: "+orangeHRMTimeSheetToApprove.validaElementosADesplegar());
 
     }
-
-
-
-
-
-
 
 }
