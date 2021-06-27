@@ -1,0 +1,14 @@
+<suite name="Examen">
+
+    <test name="Ejercicios examen">
+
+        <classes> <class name="ExamenSelenium.InterviewQuestionSiteTest"></class>
+                  <class name="ExamenSelenium.PruebaNetflixTest"></class>
+
+
+
+        </classes>
+
+    </test>
+
+</suite>
